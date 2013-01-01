@@ -15,16 +15,6 @@ namespace WordFindPuzzle
 		// or null if the character is bad
 		public CharTree getChild(char c)
 		{
-			// -- if capital letters count on search: --
-			// if it is a capital letter (matters on search)
-			/*
-			if(c >= 'A' && c <= 'Z')
-			{
-				// make it lower case
-				c = char.ToLower(c);
-			}
-			*/
-			// else
 			if(c < 'a' || c > 'z')
 			{
 				return null;
@@ -38,29 +28,7 @@ namespace WordFindPuzzle
 		// returns null if given a bad character
 		public CharTree Add(char c)
 		{
-			// -- if capital letters count on creation: --
-			// NOTE: Puzzle is all lower case,
-			// and we create the puzzleTree from the puzzle
-			// so this is not needed
-			// if it is a capital letter (matters on search)
-			/*
-			if(c >= 'A' && c <= 'Z')
-			{
-				// make it lower case
-				c = char.ToLower(c);
-			}
-			*/
-			// else
-			// -- Under New Scheeme, NO INVALID LETTERS ARE ADDED, removed for speed --
-			//  if letter is invalid
-			/*
-			if(c < 'a' || c > 'z')
-			{
-				return null;
-			}
-			*/
-
-			int index = c-'a';
+            int index = c-'a';
 
 			if(children[index] == null)
 			{
@@ -80,15 +48,6 @@ namespace WordFindPuzzle
 			{
 				currentBranch = currentBranch.Add(c);
 			}
-		
-			/* // Easy recursive version, slower
-			CharTree currentBranch = this;
-
-			for(int charIndex = 0; charIndex < word.Length; charIndex++)
-			{
-				currentBranch = currentBranch.Add(word[charIndex]);
-			}
-			*/
 		}
 
 		public bool HasBranch(string word)
@@ -120,21 +79,6 @@ namespace WordFindPuzzle
 				return true;
 			}
 			return false;
-
-            /*
-            // forward only code
-            CharTree childBranch = this;
-
-            foreach(char c in word)
-            {
-                childBranch = childBranch.getChild(c);
-                if(childBranch == null)
-                {
-                    return false;
-                }
-            }
-            return true;
-            */
         }
         
 		// The branches of this tree node, based on the 26 letter english alphabet

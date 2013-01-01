@@ -40,18 +40,6 @@ namespace WordFindPuzzle
 
 			// add reversal of puzzle to puzzle
 			puzzle = puzzleBuilder.ToString();			
-			// for the whole puzzle, in reverse, add it to the puzzleBuilder
-			/*
-			for(int index = puzzle.Length - 1; index >= 0; index--)
-			{
-				puzzleBuilder.Append(puzzle[index]);
-			}
-			// tree setup expects puzzle to end with a divider
-			puzzleBuilder.Append("\n");
-
-			// Assign final puzzle
-			puzzle = puzzleBuilder.ToString();
-			*/
 
 			// Puzzle string completely generated for all directions
 		}
