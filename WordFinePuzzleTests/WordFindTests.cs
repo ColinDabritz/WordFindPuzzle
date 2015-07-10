@@ -1,14 +1,13 @@
 using System;
-using NUnit.Framework;
 using WordFindPuzzle;
-
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace WordFindPuzzleTests
 {
-	[TestFixture]
+	[TestClass]
 	public class WordFinderTests
 	{
-		[Test]
+		[TestMethod]
 		public void HoriontalTests()
 		{
 			WordFinder wf = new WordFinder();
@@ -30,8 +29,8 @@ namespace WordFindPuzzleTests
 			Assert.IsTrue(wf.HasWordInPuzzle("cat"), "Didn't find forward word");
 		}
 
-		[Test]
-		public void HorizontalReverseTests()
+        [TestMethod]
+        public void HorizontalReverseTests()
 		{
 			WordFinder wf = new WordFinder();
 			wf.ReadPuzzle("puzzle0.txt");
@@ -52,8 +51,8 @@ namespace WordFindPuzzleTests
 			Assert.IsTrue(wf.HasWordInPuzzle("tad"),  "Didn't find horizontal reverse word");
 		}
 
-		[Test]
-		public void DiagonalRightTests()
+        [TestMethod]
+        public void DiagonalRightTests()
 		{
 			WordFinder wf = new WordFinder();
 			wf.ReadPuzzle("puzzle0.txt");
@@ -74,8 +73,8 @@ namespace WordFindPuzzleTests
 			Assert.IsTrue(wf.HasWordInPuzzle("ctc"), "Didn't find diagonal right reverse word");
 		}
 
-		[Test]
-		public void DiagonalRightReverseTests()
+        [TestMethod]
+        public void DiagonalRightReverseTests()
 		{
 			WordFinder wf = new WordFinder();
 			wf.ReadPuzzle("puzzle0.txt");
@@ -97,8 +96,8 @@ namespace WordFindPuzzleTests
 			Assert.IsTrue(wf.HasWordInPuzzle("ott"), "Didn't find diagonal left reverse word");
 		}
 
-		[Test]
-		public void VerticalTests()
+        [TestMethod]
+        public void VerticalTests()
 		{
 			WordFinder wf = new WordFinder();
 			wf.ReadPuzzle("puzzle0.txt");
@@ -118,9 +117,9 @@ namespace WordFindPuzzleTests
 			Assert.IsTrue(wf.HasWordInPuzzle("atd"), "Didn't find vertical word");
 			Assert.IsTrue(wf.HasWordInPuzzle("tac"), "Didn't find vertical word");
 		}
-		
-		[Test]
-		public void VerticalReverseTests()
+
+        [TestMethod]
+        public void VerticalReverseTests()
 		{
 			WordFinder wf = new WordFinder();
 			wf.ReadPuzzle("puzzle0.txt");
@@ -142,8 +141,8 @@ namespace WordFindPuzzleTests
 			Assert.IsTrue(wf.HasWordInPuzzle("cat"), "Didn't find vertical word");
 		}
 
-		[Test]
-		public void InvalidWordTests()
+        [TestMethod]
+        public void InvalidWordTests()
 		{
 			WordFinder wf = new WordFinder();
 			wf.ReadPuzzle("puzzle0.txt");
@@ -165,8 +164,8 @@ namespace WordFindPuzzleTests
 			Assert.IsFalse(wf.HasWordInPuzzle("ycatx"),"found word longer than puzzle");			
 		}
 
-		[Test]
-		public void WrappingTest()
+        [TestMethod]
+        public void WrappingTest()
 		{
 			WordFinder wf = new WordFinder();
 			wf.ReadPuzzle("puzzle0.txt");
@@ -198,11 +197,11 @@ namespace WordFindPuzzleTests
         
 	}
 
-	[TestFixture]
+	[TestClass]
 	public class CharTreeTests
 	{
-		[Test]
-		[ExpectedException(typeof(IndexOutOfRangeException))]
+        [TestMethod]
+        [ExpectedException(typeof(IndexOutOfRangeException))]
 		public void TestBadCharacters()
 		{
             CharTree ct = new CharTree();
@@ -213,8 +212,8 @@ namespace WordFindPuzzleTests
 			ct.Add('A'); // Should throw exception, because we assume valid input
 		}
 
-		[Test]
-		public void TestFullTree()
+        [TestMethod]
+        public void TestFullTree()
 		{
 			CharTree ct = new CharTree();
 			for(char c = 'a'; c <= 'z'; c++)
@@ -233,7 +232,7 @@ namespace WordFindPuzzleTests
 			Assert.IsNull(ct.getChild('z').getChild('z').getChild('z'));
 		}
 
-		[Test]
+		[TestMethod]
 		public void TestWords()
 		{
 			CharTree ct = new CharTree();
@@ -249,7 +248,7 @@ namespace WordFindPuzzleTests
 			Assert.IsFalse(ct.HasBranch("zortblatch"),"word not in puzzle found");
 		}
 
-		[Test]
+		[TestMethod]
 		[ExpectedException(typeof(IndexOutOfRangeException))]
 		public void TestWordException()
 		{

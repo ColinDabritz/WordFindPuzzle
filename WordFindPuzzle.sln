@@ -1,5 +1,7 @@
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.22823.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordFindPuzzle", "WordFindPuzzle\WordFindPuzzle.csproj", "{2E15ED74-46C7-48FF-BFCF-C1DAD8AE8A30}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordFindPuzzleTests", "WordFinePuzzleTests\WordFindPuzzleTests.csproj", "{0948414D-C0B8-4CB4-A33D-87C37770DB35}"
